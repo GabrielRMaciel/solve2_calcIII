@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolução Detalhada de Questão de Cálculo III</title>
+    
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        h1, h2, h3 {
+            color: #004085;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #004085;
+        }
+        .question-box {
+            background-color: #e9f7ff;
+            border: 1px solid #b3e0ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 2em;
+        }
+        .question-box img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .step {
+            margin-bottom: 2.5em;
+        }
+        .formula {
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            padding: 1.5em;
+            border-radius: 5px;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.1em;
+            margin: 1.5em 0;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        strong {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #f8f9fa;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3em;
+            padding-top: 1.5em;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Resolução Detalhada de Questão de Cálculo III</h1>
+
+        <div class="question-box">
+            <h2>Questão Prova</h2>
+            <p><strong>(Valor: 3,0 pontos)</strong> Certo sólido é limitado pelas superfícies: \(z = \sqrt{x^2 + y^2}\) (cone circular - inferiormente) e \(z = -x^2 - y^2 + 12\) (paraboloide circular - superiormente) cuja densidade é constante em g/cm³.</p>
+            <img src="image1.png" alt="Imagem da Questão: Sólido entre um cone e um paraboloide">
+            <p><strong>A)</strong> MONTE, mas não calcule, uma integral tripla em coordenadas cartesianas que forneça a massa do sólido.</p>
+            <p><strong>B)</strong> MONTE, mas não calcule, uma integral tripla em coordenadas cartesianas que forneça o volume do sólido.</p>
+            <p><strong>C)</strong> CONVERTA e CALCULE, em coordenadas cilíndricas, a integral obtida no item (A).</p>
+            <p><strong>D)</strong> MONTE, mas não calcule, uma integral tripla em coordenadas cartesianas na ordem dxdydz que forneça o primeiro momento em relação ao plano yOz do sólido;</p>
+            <p><strong>E)</strong> MONTE, mas não calcule, uma integral tripla em coordenadas cilíndricas que forneça o momento de inércia em relação ao plano xOy.</p>
+        </div>
+
+        <section id="solucao">
+            <h2>Análise Inicial: Compreendendo o Sólido</h2>
+            <div class="step">
+                <p>Antes de montar qualquer integral, o passo mais importante é entender a geometria do problema. O nosso sólido está "preso" entre duas superfícies:</p>
+                <ul>
+                    <li><strong>Superfície Inferior:</strong> \(z = \sqrt{x^2 + y^2}\). Esta é a equação de um <strong>cone circular</strong> com o vértice na origem e que se abre para cima.</li>
+                    <li><strong>Superfície Superior:</strong> \(z = 12 - x^2 - y^2\). Esta é a equação de um <strong>paraboloide circular</strong> que se abre para baixo, com o vértice no ponto \((0, 0, 12)\).</li>
+                </ul>
+                <p>O sólido, então, parece um "sorvete de casquinha", onde o cone é a casquinha e o paraboloide é a bola de sorvete por cima.</p>
+                
+                <h3>Encontrando a Interseção</h3>
+                <p>Para definir os limites de integração, precisamos saber onde essas duas superfícies se encontram. A interseção ocorre quando os valores de \(z\) são iguais:
+                \(\sqrt{x^2 + y^2} = 12 - x^2 - y^2\).</p>
+                <p>Usando a relação \(r^2 = x^2 + y^2\) (de coordenadas cilíndricas), a equação se simplifica para:</p>
+                <p>\(r = 12 - r^2 \implies r^2 + r - 12 = 0 \implies (r+4)(r-3) = 0\)</p>
+                <p>Como o raio \(r\) não pode ser negativo, a única solução válida é \(r=3\). Isso significa que a projeção do nosso sólido no plano \(xOy\) é um disco com equação \(x^2 + y^2 \le 9\). A altura \(z\) da interseção é \(z = r = 3\).</p>
+            </div>
+
+            <div class="step">
+                <h3>A) Massa em Coordenadas Cartesianas</h3>
+                <p>A fórmula da massa \(M\) com densidade constante \(\rho\) é \(M = \iiint_E \rho \, dV\). Os limites em coordenadas cartesianas \((dz \, dy \, dx)\) são:</p>
+                <ul>
+                    <li><strong>Limites de \(z\):</strong> Do cone ao paraboloide: \(\sqrt{x^2 + y^2} \le z \le 12 - x^2 - y^2\).</li>
+                    <li><strong>Limites de \(y\):</strong> Variação no disco de projeção: \(-\sqrt{9 - x^2} \le y \le \sqrt{9 - x^2}\).</li>
+                    <li><strong>Limites de \(x\):</strong> Diâmetro do disco: \(-3 \le x \le 3\).</li>
+                </ul>
+                <p>A integral para a massa é:</p>
+                <div class="formula">
+                    \[M = \int_{-3}^{3} \int_{-\sqrt{9-x^2}}^{\sqrt{9-x^2}} \int_{\sqrt{x^2+y^2}}^{12-x^2-y^2} \rho \, dz \, dy \, dx\]
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>B) Volume em Coordenadas Cartesianas</h3>
+                <p>O volume é um caso especial da massa com \(\rho=1\). Os limites são idênticos.</p>
+                <div class="formula">
+                    \[V = \int_{-3}^{3} \int_{-\sqrt{9-x^2}}^{\sqrt{9-x^2}} \int_{\sqrt{x^2+y^2}}^{12-x^2-y^2} 1 \, dz \, dy \, dx\]
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>C) Cálculo da Massa em Coordenadas Cilíndricas</h3>
+                <p>Convertemos para coordenadas cilíndricas \((r, \theta, z)\), onde \(dV = r \, dz \, dr \, d\theta\).</p>
+                <ul>
+                    <li><strong>Limites de \(z\):</strong> \(r \le z \le 12 - r^2\)</li>
+                    <li><strong>Limites de \(r\):</strong> \(0 \le r \le 3\)</li>
+                    <li><strong>Limites de \(\theta\):</strong> \(0 \le \theta \le 2\pi\)</li>
+                </ul>
+                <p>A integral convertida é:</p>
+                <div class="formula">
+                    \[M = \int_{0}^{2\pi} \int_{0}^{3} \int_{r}^{12-r^2} \rho \cdot r \, dz \, dr \, d\theta\]
+                </div>
+                <h4>Cálculo:</h4>
+                <p><strong>1. Integral em \(z\):</strong> \(\int_{r}^{12-r^2} \rho r \, dz = \rho r [z]_{r}^{12-r^2} = \rho r(12 - r - r^2) = \rho(12r - r^2 - r^3)\)</p>
+                <p><strong>2. Integral em \(r\):</strong> \(\int_{0}^{3} \rho (12r - r^2 - r^3) \, dr = \rho \left[ 6r^2 - \frac{r^3}{3} - \frac{r^4}{4} \right]_{0}^{3} = \rho \left( 54 - 9 - \frac{81}{4} \right) = \rho \left( \frac{99}{4} \right)\)</p>
+                <p><strong>3. Integral em \(\theta\):</strong> \(\int_{0}^{2\pi} \rho \frac{99}{4} \, d\theta = \rho \frac{99}{4} [\theta]_{0}^{2\pi} = \frac{99 \pi \rho}{2}\)</p>
+                <p>A massa do sólido é <strong>\(M = \frac{99\pi\rho}{2}\) g</strong>.</p>
+            </div>
+
+            <div class="step">
+                <h3>D) Primeiro Momento em Relação ao Plano yOz (Ordem dxdydz)</h3>
+                <p>O primeiro momento \(M_{yz}\) é dado por \(\iiint_E x \cdot \rho \, dV\). A ordem \(dx\,dy\,dz\) requer que a integral seja dividida em duas partes, pois a forma da secção transversal do sólido muda em \(z=3\).</p>
+                <p><strong>Parte 1 (\(0 \le z \le 3\), região do cone):</strong> A secção é um disco \(x^2+y^2 \le z^2\).</p>
+                <p><strong>Parte 2 (\(3 \le z \le 12\), região do paraboloide):</strong> A secção é um disco \(x^2+y^2 \le 12-z\).</p>
+                <p>A integral completa é a soma das duas partes:</p>
+                <div class="formula">
+                    \[M_{yz} = \int_{0}^{3} \int_{-z}^{z} \int_{-\sqrt{z^2-y^2}}^{\sqrt{z^2-y^2}} \rho x \, dx \, dy \, dz \quad + \quad \int_{3}^{12} \int_{-\sqrt{12-z}}^{\sqrt{12-z}} \int_{-\sqrt{(12-z)-y^2}}^{\sqrt{(12-z)-y^2}} \rho x \, dx \, dy \, dz\]
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>E) Momento de Inércia em Relação ao Plano xOy (Cilíndricas)</h3>
+                <p>O momento de inércia em relação ao plano \(xOy\) (\(I_{xy}\)) usa o quadrado da distância a esse plano, que é \(z^2\). A fórmula é \(I_{xy} = \iiint_E \rho z^2 \, dV\).</p>
+                <p>Usando os limites em coordenadas cilíndricas do item C, a montagem da integral fica:</p>
+                <div class="formula">
+                    \[I_{xy} = \int_{0}^{2\pi} \int_{0}^{3} \int_{r}^{12-r^2} \rho z^2 \cdot r \, dz \, dr \, d\theta\]
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>Resolução detalhada elaborada por Gabriel R Maciel.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
